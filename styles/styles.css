@@ -6,6 +6,10 @@
   --softwhite: #c0c0c0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--tertiary);
   margin: 40px auto;
@@ -165,8 +169,46 @@ h4 {
 
 h4 {
   font-size: 21px;
+  margin-bottom: 5px;
 }
 
 .manualItemText p {
   font-size: 16px;
+}
+
+.moduleLinks {
+  padding: 0px;
+}
+
+.moduleLinks li a {
+  font-size: 16px;
+}
+
+.manualItemText ul {
+  padding: 0px 20px;
+}
+
+.manualItemText ul li p {
+  margin-top: 0px;
+  margin-bottom: 6px;
+}
+
+.manualItemText ul li ul {
+  margin-top: 0px;
+  margin-bottom: 15px;
+  padding: 0px 40px;
+}
+
+.manualItemText ul li ul li p {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.manualLink {
+  text-decoration: none;
+  color: var(--softwhite);
+}
+
+.manualLink:hover {
+  color: var(--secondary);
 }
