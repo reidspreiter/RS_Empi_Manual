@@ -4,20 +4,20 @@ let empi_modules = [
     description: 'Metric modulation sequencer',
   },
   {
-    name: 'FlipFlop',
-    description: 'Multi-trigger flip-flop',
-  },
-  {
     name: 'WaitGate',
     description: 'Pulse Gate',
+  },
+  {
+    name: 'WaitGate_Zero',
+    description: 'Inverted WaitGate',
   },
   {
     name: 'WaitGate_Reset',
     description: 'WaitGate with resets',
   },
   {
-    name: 'WaitGate_Zero',
-    description: 'Inverted WaitGate',
+    name: 'FlipFlop',
+    description: 'Multi-trigger flip-flop',
   },
 ];
 
@@ -25,7 +25,7 @@ function addToGrid(mod) {
   let button = document.createElement('a');
   console.log('1');
   button.className = 'moduleButton';
-  button.href = 'manuals/' + mod.name.toLowerCase() + '.html';
+  button.href = 'modules.html#' + mod.name;
 
   let name = document.createElement('div');
   name.innerHTML = mod.name;

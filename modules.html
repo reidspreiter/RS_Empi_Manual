@@ -4,6 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Modules</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="static/faviconmm.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="static/faviconmm.png"
+    />
     <link rel="stylesheet" href="./styles/styles.css" />
   </head>
   <body>
@@ -20,19 +32,458 @@
           <a href="about.html">About</a>
         </li>
         <li>
-          <div class="nav-right">RS</div>
+          <a class="nav-right">RS</a>
         </li>
       </ul>
     </nav>
+    <!-- Content -->
+    <h1>Modules</h1>
+    <p>All module manuals in one convenient place!</p>
+    <ul>
+      <li>
+        <a href="#Tempinator_Dependence">Tempinator_Dependence</a>
+      </li>
+      <li>
+        <a href="#WaitGate">WaitGate</a>
+      </li>
+      <li>
+        <a href="#WaitGate_Zero">WaitGate_Zero</a>
+      </li>
+      <li>
+        <a href="#WaitGate_Reset">WaitGate_Reset</a>
+      </li>
+      <li>
+        <a href="#FlipFlop">FlipFlop</a>
+      </li>
+    </ul>
+    <!-- Tempinator_Dependence -->
+    <div class="manualItem">
+      <div class="sticky">
+        <img
+          class="manualItemImage"
+          src="/static/Tempinator_Dependence_Manual.png"
+          alt="Module Image"
+        />
+      </div>
+      <div id="Tempinator_Dependence" class="manualItemText">
+        <h3>Tempinator_Dependence</h3>
+        <p>
+          This module is a dynamic 8-step tempo sequencer where each step's
+          tempo can depend upon a previous step's tempo. In other words, it
+          implements metric modulation.
+        </p>
+        <p>
+          For the purposes of understanding tempo relationships, think of the
+          following: the duration of <em>x</em> beats of the new tempo is the
+          same as <em>y</em>
+          beats of the dependence tempo.
+        </p>
+        <h4>Knobs</h4>
+        <ul>
+          <li>
+            <p>
+              <b>(1) BPM</b> &ndash; Sets the master tempo of the module. It is
+              the same for each step
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>(9) Beats of Dependent Tempo</b> &ndash; Sets the number of
+              dependence tempo beats
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>(A) Beats of New Tempo</b> &ndash; Sets the number of new tempo
+              beats
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>(C) Hold</b> &ndash; Sets the amount of beats made before
+              moving to the next step
+            </p>
+          </li>
+          <li>
+            <p><b>(D) Rate</b> &ndash; Fine tunes the speed of the tempo</p>
+          </li>
+        </ul>
+        <h4>Lights</h4>
+        <ul>
+          <li>
+            <p>
+              <b>(3) Sequence Steps</b> &ndash; Indicate the output step, active
+              steps, and innactive steps
+            </p>
+            <ul>
+              <li><p>Output Step: bright green light</p></li>
+              <li><p>Active Step: dim green light</p></li>
+              <li><p>Innactive Step: off light</p></li>
+            </ul>
+          </li>
+          <li>
+            <p>
+              <b>(4) Edit Step</b> &ndash; Indicate which step's values are
+              being edited
+            </p>
+          </li>
+          <li>
+            <p><b>(5) On/Off</b> &ndash; Indicate the state of the edit step</p>
+          </li>
+        </ul>
+        <h4>Buttons</h4>
+        <ul>
+          <li>
+            <p><b>(6) Left</b> &ndash; Move edit step to the left</p>
+          </li>
+          <li>
+            <p><b>(7) On/Off</b> &ndash; Turn edit step on or off</p>
+          </li>
+          <li>
+            <p><b>(8) Right</b> &ndash; Move edit step to the right</p>
+          </li>
+          <li>
+            <p>
+              <b>(B) Dependence Selector</b> &ndash; Choose what beats the new
+              tempo depends on
+            </p>
+            <ul>
+              <li>
+                <p>BPM: Depends on master tempo</p>
+              </li>
+              <li>
+                <p>&lt;: Depends on previous tempo, even if inactive</p>
+              </li>
+              <li>
+                <p>
+                  &lt;&lt;: Depends on previous previous tempo, even if inactive
+                </p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <p><b>(F) Reset</b> &ndash; resets sequence to first step</p>
+          </li>
+        </ul>
+        <h4>Outputs</h4>
+        <ul>
+          <li>
+            <p><b>(2) BPM</b> &ndash; Outputs clock pulse of master tempo</p>
+          </li>
+          <li>
+            <p>
+              <b>(G) Clock</b> &ndash; Outputs clock pulse of sequence steps
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- WaitGate -->
+    <div class="manualItem">
+      <div class="sticky">
+        <img
+          class="manualItemImage"
+          src="/static/WaitGate_Manual.png"
+          alt="Module Image"
+        />
+      </div>
+      <div id="WaitGate" class="manualItemText">
+        <h3>WaitGate</h3>
+        <p>
+          This module is a pulse-programmable gate. The user can adjust the
+          amount of time the gate stays closed and open based on a specified
+          number of pulses.
+        </p>
+        <h4>Inputs</h4>
+        <ul>
+          <li>
+            <p>
+              <b>(1) Pulse</b> &ndash; A clock pulse that the gate uses to
+              determine wait time. Any signal can be used, but pulses are only
+              counted at 10V strength
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>(3) In</b> &ndash; Signal to be passed through an open gate
+            </p>
+          </li>
+        </ul>
+        <h4>Knobs</h4>
+        <ul>
+          <li>
+            <p>
+              <b>(4) Closed Wait</b> &ndash; Amount of pulses the gate remains
+              closed for
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>(6) Open Wait</b> &ndash; Amount of pulses the gate remains
+              open for. Setting this knob to zero means the gate will never
+              close once opened
+            </p>
+          </li>
+        </ul>
+        <h4>Lights</h4>
+        <ul>
+          <li>
+            <p><b>(2) Closed</b> &ndash; Indicates the gate is closed</p>
+          </li>
+          <li>
+            <p><b>(5) Open</b> &ndash; Indicates the gate is open</p>
+          </li>
+        </ul>
+        <h4>Output</h4>
+        <ul>
+          <li>
+            <p>
+              <b>(7) Out</b> &ndash; Outputs <em>In</em> signal when gate is
+              open
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- WaitGate_Zero -->
+    <div class="manualItem">
+      <div class="sticky">
+        <img
+          class="manualItemImage"
+          src="/static/WaitGate_Zero_Manual.png"
+          alt="Module Image"
+        />
+      </div>
+      <div id="WaitGate_Zero" class="manualItemText">
+        <h3>WaitGate_Zero</h3>
+        <p>
+          This module is a modification of
+          <a href="#WaitGate"><b>WaitGate</b></a
+          >. There is no input pulse. Instead, the gate wait times depend on the
+          <em>In</em> signal having a strength of 0V. This alows for the gate to
+          be much more dynamic.
+        </p>
+        <h4>Input</h4>
+        <ul>
+          <li>
+            <p>
+              <b>(3) In</b> &ndash; Signal to be passed through an open gate.
+              Moreover, wait times depend on the signal having a strength of 0V
+            </p>
+          </li>
+        </ul>
+        <h4>Knobs</h4>
+        <ul>
+          <li>
+            <p>
+              <b>(4) Closed Wait</b> &ndash; Amount of pulses the gate remains
+              closed for
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>(6) Open Wait</b> &ndash; Amount of pulses the gate remains
+              open for. Setting this knob to zero means the gate will never
+              close once opened
+            </p>
+          </li>
+        </ul>
+        <h4>Lights</h4>
+        <ul>
+          <li>
+            <p>
+              <b>(1) Zero</b> &ndash; Indicates when the <em>In</em> signal has
+              a strength of 0V
+            </p>
+          </li>
+          <li>
+            <p><b>(2) Closed</b> &ndash; Indicates the gate is closed</p>
+          </li>
+          <li>
+            <p><b>(5) Open</b> &ndash; Indicates the gate is open</p>
+          </li>
+        </ul>
+        <h4>Output</h4>
+        <ul>
+          <li>
+            <p>
+              <b>(7) Out</b> &ndash; Outputs <em>In</em> signal when gate is
+              open
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- WaitGate_Reset -->
+    <div class="manualItem">
+      <div class="sticky">
+        <img
+          class="manualItemImage"
+          src="/static/WaitGate_Reset_Manual.png"
+          alt="Module Image"
+        />
+      </div>
+      <div id="WaitGate_Reset" class="manualItemText">
+        <h3>WaitGate_Reset</h3>
+        <p>
+          This module is a modification of
+          <a href="#WaitGate"><b>WaitGate</b></a
+          >. It implements three reset options and wait indication lights.
+        </p>
+        <h4>Inputs</h4>
+        <ul>
+          <li>
+            <p>
+              <b>(1) Pulse</b> &ndash; A clock pulse that the gate uses to
+              determine wait time. Any signal can be used, but pulses are only
+              counted at 10V strength
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>(2) Master Reset</b> &ndash; Resets gate to closed and wait
+              time to zero.
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>(4) In</b> &ndash; Signal to be passed through an open gate.
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>(5) Closed Reset</b> &ndash; Resets closed wait time to zero if
+              gate is closed.
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>(A) Open Reset</b> &ndash; Resets open wait time to zero if
+              gate is open.
+            </p>
+          </li>
+        </ul>
+        <h4>Knobs</h4>
+        <ul>
+          <li>
+            <p>
+              <b>(6) Closed Wait</b> &ndash; Amount of pulses the gate remains
+              closed for
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>(9) Open Wait</b> &ndash; Amount of pulses the gate remains
+              open for. Setting this knob to zero means the gate will never
+              close once opened
+            </p>
+          </li>
+        </ul>
+        <h4>Lights</h4>
+        <ul>
+          <li>
+            <p><b>(3) Closed</b> &ndash; Indicates the gate is closed</p>
+          </li>
+          <li>
+            <p>
+              <b>(7) Closed Wait Indication</b> &ndash; The brightness level
+              corresponds with how close the gate is to opening
+            </p>
+          </li>
+          <li>
+            <p><b>(8) Open</b> &ndash; Indicates the gate is open</p>
+          </li>
+          <li>
+            <p>
+              <b>(C) Open Wait Indication</b> &ndash; The brightness level
+              corresponds with how close the gate is to closing
+            </p>
+          </li>
+        </ul>
+        <h4>Output</h4>
+        <ul>
+          <li>
+            <p>
+              <b>(B) Out</b> &ndash; Outputs <em>In</em> signal when gate is
+              open
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- FlipFlop -->
+    <div class="manualItem">
+      <div class="sticky">
+        <img
+          class="manualItemImage"
+          src="/static/FlipFlop_Manual.png"
+          alt="Module Image"
+        />
+      </div>
+      <div id="FlipFlop" class="manualItemText">
+        <h3>FlipFlop</h3>
+        <p>This module is a multi-trigger flipflop.</p>
+        <h4>Inputs</h4>
+        <ul>
+          <li>
+            <p><b>(3) In</b> &ndash; Signal to be flipped or flopped</p>
+          </li>
+          <li>
+            <p>
+              <b>(4-7) Triggers</b> &ndash; Signals to change state of flipflop
+              when they have a strength of 10V
+            </p>
+          </li>
+        </ul>
+        <h4>Lights</h4>
+        <ul>
+          <li>
+            <p>
+              <b>(2) Flip</b> &ndash; Indicates when the <em>Flip</em> state is
+              active
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>(9) Flop</b> &ndash; Indicates when the <em>Flop</em> state is
+              active
+            </p>
+          </li>
+        </ul>
+        <h4>Outputs</h4>
+        <ul>
+          <li>
+            <p>
+              <b>(1) Flip Out</b> &ndash; Outputs <em>In</em> signal when
+              <em>Flip</em> state is active
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>(8) Flop Out</b> &ndash; Outputs <em>In</em> signal when
+              <em>Flop</em> state is active
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <br />
+    <br />
     <!-- Footer -->
     <footer>
       <ul>
         <li>
-          <a href="https://github.com/reidspreiter/RS_Empi">GitHub</a>
+          <a target="blank" href="https://github.com/reidspreiter/RS_Empi"
+            >GitHub</a
+          >
         </li>
-        <li>Contact</li>
         <li>
-          <a href="https://library.vcvrack.com/">Library Page</a>
+          <a href="">Contact</a>
+        </li>
+        <li>
+          <a target="_blank" href="https://library.vcvrack.com/"
+            >Library Page</a
+          >
         </li>
       </ul>
       <p class="copy">&copy; 2023 Reid Spreiter</p>

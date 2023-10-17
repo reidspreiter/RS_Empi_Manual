@@ -19,6 +19,22 @@ h1 {
   margin-bottom: 0;
 }
 
+.noPad {
+  padding: 0px;
+}
+
+ul li a {
+  color: var(--white);
+  text-decoration: none;
+  list-style: none;
+  font-size: 2.5em;
+  font-family: 'Consolas', 'Arial', 'Sans-Serif';
+}
+
+ul li a:hover {
+  color: var(--secondary);
+}
+
 p {
   color: var(--softwhite);
   font-family: 'Sand-Serif';
@@ -38,30 +54,29 @@ footer ul {
   font-family: 'Consolas', 'Arial', 'Sans-Serif';
   list-style: none;
   padding: 0px;
-  font-size: 1.2em;
+  font-size: 10px;
 }
 
 nav ul li,
 footer ul li {
-  color: var(--secondary);
+  color: var(--white);
   display: inline;
   margin-right: 25px;
 }
 
 nav ul li a,
 footer ul li a {
-  color: var(--secondary);
+  color: var(--white);
   text-decoration: none;
-}
-
-nav ul li a:hover,
-footer ul li a:hover {
-  text-decoration: underline;
 }
 
 .nav-right {
   float: right;
   margin-right: 25px;
+}
+
+.nav-right:hover {
+  color: var(--white);
 }
 
 .copy {
@@ -95,6 +110,8 @@ footer ul li a:hover {
 
 .moduleButton:hover {
   color: var(--secondary);
+  background-color: #151515;
+  border-color: var(--white);
 }
 
 .moduleButton img {
@@ -113,4 +130,43 @@ footer ul li a:hover {
   color: var(--softwhite);
   font-family: 'Sans-Serif', 'Arial';
   font-size: 12px;
+}
+
+.manualItem {
+  display: inline-flex;
+  margin-bottom: 10px;
+  width: 98%;
+  border: 1px solid #6f6f6f;
+  border-radius: 6px;
+}
+
+.sticky {
+  position: sticky;
+  align-self: flex-start;
+  top: 20px;
+}
+
+.manualItemImage {
+  margin: 10px 10px;
+  max-height: 90vh;
+}
+
+.manualItemText {
+  margin: 0px 10px;
+  float: right;
+}
+
+h3,
+h4 {
+  color: var(--white);
+  font-family: 'Consolas', 'Arial', 'Sans-Serif';
+  font-size: 25px;
+}
+
+h4 {
+  font-size: 21px;
+}
+
+.manualItemText p {
+  font-size: 16px;
 }
