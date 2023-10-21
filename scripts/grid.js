@@ -1,11 +1,31 @@
 let empi_modules = [
   {
+    name: 'Tempinator',
+    description: 'Tempo sequencer',
+  },
+  {
     name: 'Tempinator_Dependence',
-    description: 'Metric modulation sequencer',
+    description: 'Metric modulation',
+  },
+  {
+    name: 'Tempinator_DepAcc',
+    description: 'Tempinator + Accent',
+  },
+  {
+    name: 'Accent',
+    description: 'Accent beats',
+  },
+  {
+    name: 'Accent_Separate',
+    description: 'Accent + outputs',
+  },
+  {
+    name: 'Balance',
+    description: 'Balance events',
   },
   {
     name: 'WaitGate',
-    description: 'Pulse Gate',
+    description: 'Programmable gate',
   },
   {
     name: 'WaitGate_Zero',
@@ -13,17 +33,32 @@ let empi_modules = [
   },
   {
     name: 'WaitGate_Reset',
-    description: 'WaitGate with resets',
+    description: 'WaitGate + resets',
+  },
+  {
+    name: 'WaitGate_Duo',
+    description: '2-signal WaitGate',
   },
   {
     name: 'FlipFlop',
-    description: 'Multi-trigger flip-flop',
+    description: 'flip-flop',
+  },
+  {
+    name: 'FlippityFloppity',
+    description: 'Adjusted FlipFlop',
+  },
+  {
+    name: 'FlopFlip',
+    description: 'Adjusted FlipFlop',
+  },
+  {
+    name: 'FloppityFlippity',
+    description: 'Adjusted FlipFlop',
   },
 ];
 
 function addToGrid(mod) {
   let button = document.createElement('a');
-  console.log('1');
   button.className = 'moduleButton';
   button.href = 'modules.html#' + mod.name;
 
@@ -38,7 +73,7 @@ function addToGrid(mod) {
   button.appendChild(description);
 
   let image = document.createElement('img');
-  image.src = 'static/' + mod.name + '.png';
+  image.src = 'static/moduleImages/' + mod.name + '.png';
   button.appendChild(image);
 
   document.getElementById('modules').appendChild(button);
