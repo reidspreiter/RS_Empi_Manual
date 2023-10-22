@@ -62,13 +62,13 @@
         <a href="#WaitGate">WaitGate</a>
       </li>
       <li>
-        <a href="#WaitGate_Duo">WaitGate_Duo</a>
-      </li>
-      <li>
         <a href="#WaitGate_Zero">WaitGate_Zero</a>
       </li>
       <li>
         <a href="#WaitGate_Reset">WaitGate_Reset</a>
+      </li>
+      <li>
+        <a href="#WaitGate_Duo">WaitGate_Duo</a>
       </li>
       <li>
         <a href="#FlipFlop">FlipFlop</a>
@@ -94,6 +94,68 @@
       </div>
       <div id="Tempinator" class="manualItemText">
         <h3>Tempinator</h3>
+        <p>This module is an 8-step tempo sequencer.</p>
+        <h4>Inputs</h4>
+        <ul>
+          <li>
+            <p><b>(1) Reset</b> &ndash; Resets sequence to first step</p>
+          </li>
+        </ul>
+        <h4>Knobs</h4>
+        <ul>
+          <li>
+            <p><b>(8) BPM</b> &ndash; Sets the tempo of the current step</p>
+          </li>
+          <li>
+            <p>
+              <b>(9) Hold</b> &ndash; Sets the amount of beats made before
+              moving to the next step
+            </p>
+          </li>
+        </ul>
+        <h4>Lights</h4>
+        <ul>
+          <li>
+            <p>
+              <b>(2) Sequence Steps</b> &ndash; Indicate the output step, active
+              steps, and innactive steps
+            </p>
+            <ul>
+              <li><p>Output Step: bright green light</p></li>
+              <li><p>Active Step: dim green light</p></li>
+              <li><p>Innactive Step: off light</p></li>
+            </ul>
+          </li>
+          <li>
+            <p>
+              <b>(3) Edit Steps</b> &ndash; Indicate which step's values are
+              being edited
+            </p>
+          </li>
+        </ul>
+        <h4>Buttons</h4>
+        <ul>
+          <li>
+            <p><b>(4) Reset</b> &ndash; Resets sequence to first step</p>
+          </li>
+          <li>
+            <p><b>(5) On/Off</b> &ndash; Turn edit step on or off</p>
+          </li>
+          <li>
+            <p><b>(6) Up</b> &ndash; Move edit step up</p>
+          </li>
+          <li>
+            <p><b>(7) Down</b> &ndash; Move edit step down</p>
+          </li>
+        </ul>
+        <h4>Outputs</h4>
+        <ul>
+          <li>
+            <p>
+              <b>(A) Clock</b> &ndash; Outputs clock pulse of sequence steps
+            </p>
+          </li>
+        </ul>
       </div>
     </div>
     <!-- Tempinator_Dependence -->
@@ -108,9 +170,11 @@
       <div id="Tempinator_Dependence" class="manualItemText">
         <h3>Tempinator_Dependence</h3>
         <p>
-          This module is a dynamic 8-step tempo sequencer where each step's
-          tempo can depend upon a previous step's tempo. In other words, it
-          implements metric modulation.
+          This module is a dynamic 8-step tempo sequencer that serves as an
+          expansion of
+          <a class="manualLink" href="#Tempinator"><b>Tempinator</b></a
+          >. Each step's tempo can depend upon a previous step's tempo. In other
+          words, it implements metric modulation.
         </p>
         <p>
           For the purposes of understanding tempo relationships, think of the
@@ -118,6 +182,12 @@
           same as <em>y</em>
           beats of the dependence tempo.
         </p>
+        <h4>Inputs</h4>
+        <ul>
+          <li>
+            <p><b>(F) Reset</b> &ndash; Resets sequence to first step</p>
+          </li>
+        </ul>
         <h4>Knobs</h4>
         <ul>
           <li>
@@ -140,20 +210,20 @@
           </li>
           <li>
             <p>
-              <b>(C) Hold</b> &ndash; Sets the amount of beats made before
+              <b>(D) Hold</b> &ndash; Sets the amount of beats made before
               moving to the next step
             </p>
           </li>
           <li>
-            <p><b>(D) Rate</b> &ndash; Fine tunes the speed of the tempo</p>
+            <p><b>(E) Rate</b> &ndash; Fine tunes the speed of the tempo</p>
           </li>
         </ul>
         <h4>Lights</h4>
         <ul>
           <li>
             <p>
-              <b>(3) Sequence Steps</b> &ndash; Indicate the output step, active
-              steps, and innactive steps
+              <b>(3) Sequence Steps</b> &ndash; Indicates the output step,
+              active steps, and innactive steps
             </p>
             <ul>
               <li><p>Output Step: bright green light</p></li>
@@ -163,12 +233,20 @@
           </li>
           <li>
             <p>
-              <b>(4) Edit Step</b> &ndash; Indicate which step's values are
+              <b>(4) Edit Step</b> &ndash; Indicates which step's values are
               being edited
             </p>
           </li>
           <li>
-            <p><b>(5) On/Off</b> &ndash; Indicate the state of the edit step</p>
+            <p>
+              <b>(5) On/Off</b> &ndash; Indicates the state of the edit step
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>(B) Dependence</b> &ndash; Indicates which dependence mode is
+              selected
+            </p>
           </li>
         </ul>
         <h4>Buttons</h4>
@@ -184,7 +262,7 @@
           </li>
           <li>
             <p>
-              <b>(B) Dependence Selector</b> &ndash; Choose what beats the new
+              <b>(C) Dependence Selector</b> &ndash; Choose what beats the new
               tempo depends on
             </p>
             <ul>
@@ -192,17 +270,18 @@
                 <p>BPM: Depends on master tempo</p>
               </li>
               <li>
-                <p>&lt;: Depends on previous tempo, even if inactive</p>
+                <p>&larr;: Depends on previous tempo, even if inactive</p>
               </li>
               <li>
                 <p>
-                  &lt;&lt;: Depends on previous previous tempo, even if inactive
+                  &larr;&larr;: Depends on previous previous tempo, even if
+                  inactive
                 </p>
               </li>
             </ul>
           </li>
           <li>
-            <p><b>(F) Reset</b> &ndash; resets sequence to first step</p>
+            <p><b>(G) Reset</b> &ndash; resets sequence to first step</p>
           </li>
         </ul>
         <h4>Outputs</h4>
@@ -212,7 +291,7 @@
           </li>
           <li>
             <p>
-              <b>(G) Clock</b> &ndash; Outputs clock pulse of sequence steps
+              <b>(H) Clock</b> &ndash; Outputs clock pulse of sequence steps
             </p>
           </li>
         </ul>
@@ -229,6 +308,162 @@
       </div>
       <div id="Tempinator_DepAcc" class="manualItemText">
         <h3>Tempinator_DepAcc</h3>
+        <p>
+          This module is an 8-step tempo sequencer that combines
+          <a class="manualLink" href="#Tempinator_Dependence"
+            ><b>Tempinator_Dependence</b></a
+          >
+          and <a class="manualLink" href="#Accent"><b>Accent</b></a> to allow
+          the characteristics of each step's tempo to be fully realized.
+        </p>
+        <h4>Inputs</h4>
+        <ul>
+          <li>
+            <p><b>(H) Reset</b> &ndash; Resets sequence to first step</p>
+          </li>
+        </ul>
+        <h4>Knobs</h4>
+        <ul>
+          <li>
+            <p>
+              <b>(1) BPM</b> &ndash; Sets the master tempo of the module. It is
+              the same for each step
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>(3) Master Beats per Measure</b> &ndash; Sets the number of
+              master tempo beats between each downbeat. For example, if the
+              tempo should reflect 5/4, set b/m to 5.
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>(B) Beats of Dependent Tempo</b> &ndash; Sets the number of
+              dependence tempo beats
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>(C) Beats of New Tempo</b> &ndash; Sets the number of new tempo
+              beats
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>(F) Hold</b> &ndash; Sets the amount of beats made before
+              moving to the next step
+            </p>
+          </li>
+          <li>
+            <p><b>(G) Rate</b> &ndash; Fine tunes the speed of the tempo</p>
+          </li>
+          <li>
+            <p>
+              <b>(K) Beats per Measure</b> &ndash; Sets the number of step tempo
+              beats between each downbeat. For example, if the tempo should
+              reflect 5/4, set b/m to 5.
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>(L-O) Accents</b> &ndash; Set the beats to accent during each
+              measure
+            </p>
+          </li>
+        </ul>
+        <h4>Lights</h4>
+        <ul>
+          <li>
+            <p>
+              <b>(5) Sequence Steps</b> &ndash; Indicates the output step,
+              active steps, and innactive steps
+            </p>
+            <ul>
+              <li><p>Output Step: bright green light</p></li>
+              <li><p>Active Step: dim green light</p></li>
+              <li><p>Innactive Step: off light</p></li>
+            </ul>
+          </li>
+          <li>
+            <p>
+              <b>(6) Edit Step</b> &ndash; Indicates which step's values are
+              being edited
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>(7) On/Off</b> &ndash; Indicates the state of the edit step
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>(D) Dependence</b> &ndash; Indicates which dependence mode is
+              selected
+            </p>
+          </li>
+        </ul>
+        <h4>Buttons</h4>
+        <ul>
+          <li>
+            <p><b>(8) Left</b> &ndash; Move edit step to the left</p>
+          </li>
+          <li>
+            <p><b>(9) On/Off</b> &ndash; Turn edit step on or off</p>
+          </li>
+          <li>
+            <p><b>(A) Right</b> &ndash; Move edit step to the right</p>
+          </li>
+          <li>
+            <p>
+              <b>(E) Dependence Selector</b> &ndash; Choose what beats the new
+              tempo depends on
+            </p>
+            <ul>
+              <li>
+                <p>BPM: Depends on master tempo</p>
+              </li>
+              <li>
+                <p>&larr;: Depends on previous tempo, even if inactive</p>
+              </li>
+              <li>
+                <p>
+                  &larr;&larr;: Depends on previous previous tempo, even if
+                  inactive
+                </p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <p><b>(I) Reset</b> &ndash; Resets sequence to first step</p>
+          </li>
+        </ul>
+        <h4>Outputs</h4>
+        <ul>
+          <li>
+            <p><b>(2) BPM</b> &ndash; Outputs clock pulse of master tempo</p>
+          </li>
+          <li>
+            <p>
+              <b>(4) Master Downbeat</b> &ndash; Outputs downbeat of the
+              hypothetical measure set by <em>b/m</em>
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>(J) Clock</b> &ndash; Outputs clock pulse of sequence steps
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>(P) Step Downbeat</b> &ndash; Outputs downbeat of the
+              hypothetical measure set by <em>b/m</em>
+            </p>
+          </li>
+          <li>
+            <p><b>(Q) Accents</b> &ndash; Outputs accents</p>
+          </li>
+        </ul>
       </div>
     </div>
     <!-- Accent -->
@@ -242,6 +477,59 @@
       </div>
       <div id="Accent" class="manualItemText">
         <h3>Accent</h3>
+        <p>
+          This module treats the input pulse with a specific time signature. The
+          user can output the downbeat of the time signature, and specify
+          accents on other beats as well.
+        </p>
+        <h4>Inputs</h4>
+        <ul>
+          <li>
+            <p>
+              <b>(1) Pulse</b> &ndash; A clock pulse, or any other signal for
+              that matter. A pulse is 'counted' when the input strength is
+              greater than 0V
+            </p>
+          </li>
+        </ul>
+        <h4>Knobs</h4>
+        <ul>
+          <li>
+            <p>
+              <b>(2) Beats per Measure</b> &ndash; Sets the time signature
+              length
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>(3-6) Accents</b> &ndash; Set the beats to accent during each
+              measure
+            </p>
+          </li>
+        </ul>
+        <h4>Lights</h4>
+        <ul>
+          <li>
+            <p>
+              <b>(7-A) Accents</b> &ndash; Indicates when the beat signified by
+              the accent knob is being output
+            </p>
+          </li>
+        </ul>
+        <h4>Outputs</h4>
+        <ul>
+          <li>
+            <p>
+              <b>(B) Downbeat</b> &ndash; Outputs the downbeat of the time
+              signature
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>(C) Accents</b> &ndash; Outputs clock pulse of sequence steps
+            </p>
+          </li>
+        </ul>
       </div>
     </div>
     <!-- Accent_Separate -->
@@ -255,6 +543,65 @@
       </div>
       <div id="Accent_Separate" class="manualItemText">
         <h3>Accent_Separate</h3>
+        <p>
+          This module is an expansion of
+          <a class="manualLink" href="#Accent"><b>Accent</b></a> which adds
+          individual outputs for each accent.
+        </p>
+        <h4>Inputs</h4>
+        <ul>
+          <li>
+            <p>
+              <b>(1) Pulse</b> &ndash; A clock pulse, or any other signal for
+              that matter. A pulse is 'counted' when the input strength is
+              greater than 0V
+            </p>
+          </li>
+        </ul>
+        <h4>Knobs</h4>
+        <ul>
+          <li>
+            <p>
+              <b>(2) Beats per Measure</b> &ndash; Sets the time signature
+              length
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>(A-G) Accents</b> &ndash; Set the beats to accent during each
+              measure
+            </p>
+          </li>
+        </ul>
+        <h4>Lights</h4>
+        <ul>
+          <li>
+            <p>
+              <b>(3-9) Accents</b> &ndash; Indicates when the beat signified by
+              the accent knob is being output
+            </p>
+          </li>
+        </ul>
+        <h4>Outputs</h4>
+        <ul>
+          <li>
+            <p>
+              <b>(H-N) Individual Accents</b> &ndash; Output the signals of each
+              individual accent
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>(O) Downbeat</b> &ndash; Outputs the downbeat of the time
+              signature
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>(P) Accents</b> &ndash; Outputs clock pulse of sequence steps
+            </p>
+          </li>
+        </ul>
       </div>
     </div>
     <!-- Balance -->
@@ -268,6 +615,49 @@
       </div>
       <div id="Balance" class="manualItemText">
         <h3>Balance</h3>
+        <p>
+          This module sets an occurance limit on three signals. If one signal
+          reaches its limit, it won't be output again until the other two
+          signals have reached their limits.
+        </p>
+        <p>To set this module to two-signal balance mode, set Knob (9) to 0.</p>
+        <h4>Inputs</h4>
+        <ul>
+          <li>
+            <p>
+              <b>(4-6) Signal</b> &ndash; A clock pulse, or any other signal for
+              that matter. A pulse is 'counted' when the input strength is
+              greater than 0V
+            </p>
+          </li>
+        </ul>
+        <h4>Knobs</h4>
+        <ul>
+          <li>
+            <p>
+              <b>(7-9) Beats per Measure</b> &ndash; Set the occurance limit of
+              each signal
+            </p>
+          </li>
+        </ul>
+        <h4>Lights</h4>
+        <ul>
+          <li>
+            <p>
+              <b>(1-3) Limit Indicator</b> &ndash; Indicates when a signal has
+              reached its occurance limit
+            </p>
+          </li>
+        </ul>
+        <h4>Outputs</h4>
+        <ul>
+          <li>
+            <p>
+              <b>(A-C) Signal</b> &ndash; Output each signal as long as their
+              respective limit has not been reached.
+            </p>
+          </li>
+        </ul>
       </div>
     </div>
     <!-- WaitGate -->
@@ -290,14 +680,20 @@
         <ul>
           <li>
             <p>
-              <b>(1) Pulse</b> &ndash; A clock pulse that the gate uses to
-              determine wait time. Any signal can be used, but pulses are only
-              counted at 10V strength
+              <b>(1) Pulse</b> &ndash; A clock pulse, or any other signal for
+              that matter. A pulse is 'counted' when the input strength is
+              greater than 0V
             </p>
           </li>
           <li>
             <p>
-              <b>(3) In</b> &ndash; Signal to be passed through an open gate
+              <b>(2) Reset</b> &ndash; Closes the gate and resets the pulse
+              count
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>(4) In</b> &ndash; Signal to be passed through an open gate
             </p>
           </li>
         </ul>
@@ -305,13 +701,13 @@
         <ul>
           <li>
             <p>
-              <b>(4) Closed Wait</b> &ndash; Amount of pulses the gate remains
+              <b>(5) Closed Wait</b> &ndash; Amount of pulses the gate remains
               closed for
             </p>
           </li>
           <li>
             <p>
-              <b>(6) Open Wait</b> &ndash; Amount of pulses the gate remains
+              <b>(7) Open Wait</b> &ndash; Amount of pulses the gate remains
               open for. Setting this knob to zero means the gate will never
               close once opened
             </p>
@@ -320,17 +716,17 @@
         <h4>Lights</h4>
         <ul>
           <li>
-            <p><b>(2) Closed</b> &ndash; Indicates the gate is closed</p>
+            <p><b>(3) Closed</b> &ndash; Indicates the gate is closed</p>
           </li>
           <li>
-            <p><b>(5) Open</b> &ndash; Indicates the gate is open</p>
+            <p><b>(6) Open</b> &ndash; Indicates the gate is open</p>
           </li>
         </ul>
         <h4>Output</h4>
         <ul>
           <li>
             <p>
-              <b>(7) Out</b> &ndash; Outputs <em>In</em> signal when gate is
+              <b>(8) Out</b> &ndash; Outputs <em>In</em> signal when gate is
               open
             </p>
           </li>
@@ -351,16 +747,21 @@
         <p>
           This module is a modification of
           <a class="manualLink" href="#WaitGate"><b>WaitGate</b></a
-          >. There is no input pulse. Instead, the gate wait times depend on the
-          <em>In</em> signal having a strength of 0V. This alows for the gate to
-          be much more dynamic.
+          >. There is no input pulse. Instead, pulses depend on the
+          <em>In</em> signal having a strength of 0V.
         </p>
         <h4>Input</h4>
         <ul>
           <li>
             <p>
-              <b>(3) In</b> &ndash; Signal to be passed through an open gate.
-              Moreover, wait times depend on the signal having a strength of 0V
+              <b>(2) Reset</b> &ndash; Closes the gate and resets the pulse
+              count
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>(4) In</b> &ndash; Signal to be passed through an open gate.
+              Pulses are counted when the signal has a strength of 0V
             </p>
           </li>
         </ul>
@@ -368,13 +769,13 @@
         <ul>
           <li>
             <p>
-              <b>(4) Closed Wait</b> &ndash; Amount of pulses the gate remains
+              <b>(5) Closed Wait</b> &ndash; Amount of pulses the gate remains
               closed for
             </p>
           </li>
           <li>
             <p>
-              <b>(6) Open Wait</b> &ndash; Amount of pulses the gate remains
+              <b>(7) Open Wait</b> &ndash; Amount of pulses the gate remains
               open for. Setting this knob to zero means the gate will never
               close once opened
             </p>
@@ -389,17 +790,17 @@
             </p>
           </li>
           <li>
-            <p><b>(2) Closed</b> &ndash; Indicates the gate is closed</p>
+            <p><b>(3) Closed</b> &ndash; Indicates the gate is closed</p>
           </li>
           <li>
-            <p><b>(5) Open</b> &ndash; Indicates the gate is open</p>
+            <p><b>(6) Open</b> &ndash; Indicates the gate is open</p>
           </li>
         </ul>
         <h4>Output</h4>
         <ul>
           <li>
             <p>
-              <b>(7) Out</b> &ndash; Outputs <em>In</em> signal when gate is
+              <b>(8) Out</b> &ndash; Outputs <em>In</em> signal when gate is
               open
             </p>
           </li>
@@ -420,38 +821,38 @@
         <p>
           This module is a modification of
           <a class="manualLink" href="#WaitGate"><b>WaitGate</b></a
-          >. It implements three reset options and wait indication lights.
+          >. It implements three reset options.
         </p>
         <h4>Inputs</h4>
         <ul>
           <li>
             <p>
-              <b>(1) Pulse</b> &ndash; A clock pulse that the gate uses to
-              determine wait time. Any signal can be used, but pulses are only
-              counted at 10V strength
+              <b>(1) Master Reset</b> &ndash; Resets gate to closed and pulse
+              count to zero
             </p>
           </li>
           <li>
             <p>
-              <b>(2) Master Reset</b> &ndash; Resets gate to closed and wait
-              time to zero.
+              <b>(2) Closed Reset</b> &ndash; Resets closed pulse count to zero.
+              Only has an effect if the gate is closed
             </p>
           </li>
           <li>
             <p>
-              <b>(4) In</b> &ndash; Signal to be passed through an open gate.
+              <b>(3) Open Reset</b> &ndash; Resets open pulse count to zero.
+              Only has an effect if the gate is open
             </p>
           </li>
           <li>
             <p>
-              <b>(5) Closed Reset</b> &ndash; Resets closed wait time to zero if
-              gate is closed.
+              <b>(4) Pulse</b> &ndash; A clock pulse, or any other signal for
+              that matter. A pulse is 'counted' when the input strength is
+              greater than 0V
             </p>
           </li>
           <li>
             <p>
-              <b>(A) Open Reset</b> &ndash; Resets open wait time to zero if
-              gate is open.
+              <b>(6) In</b> &ndash; Signal to be passed through an open gate
             </p>
           </li>
         </ul>
@@ -459,7 +860,7 @@
         <ul>
           <li>
             <p>
-              <b>(6) Closed Wait</b> &ndash; Amount of pulses the gate remains
+              <b>(7) Closed Wait</b> &ndash; Amount of pulses the gate remains
               closed for
             </p>
           </li>
@@ -474,29 +875,17 @@
         <h4>Lights</h4>
         <ul>
           <li>
-            <p><b>(3) Closed</b> &ndash; Indicates the gate is closed</p>
-          </li>
-          <li>
-            <p>
-              <b>(7) Closed Wait Indication</b> &ndash; The brightness level
-              corresponds with how close the gate is to opening
-            </p>
+            <p><b>(5) Closed</b> &ndash; Indicates the gate is closed</p>
           </li>
           <li>
             <p><b>(8) Open</b> &ndash; Indicates the gate is open</p>
-          </li>
-          <li>
-            <p>
-              <b>(C) Open Wait Indication</b> &ndash; The brightness level
-              corresponds with how close the gate is to closing
-            </p>
           </li>
         </ul>
         <h4>Output</h4>
         <ul>
           <li>
             <p>
-              <b>(B) Out</b> &ndash; Outputs <em>In</em> signal when gate is
+              <b>(A) Out</b> &ndash; Outputs <em>In</em> signal when gate is
               open
             </p>
           </li>
@@ -514,6 +903,78 @@
       </div>
       <div id="WaitGate_Duo" class="manualItemText">
         <h3>WaitGate_Duo</h3>
+        <p>
+          This module is a modification of
+          <a class="manualLink" href="#WaitGate"><b>WaitGate</b></a
+          >. To open and close, two signals must meet their wait requirements.
+        </p>
+        <h4>Inputs</h4>
+        <ul>
+          <li>
+            <p>
+              <b>(1) Reset</b> &ndash; Resets gate to closed and pulse count to
+              zero
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>(3, 4) Pulses</b> &ndash; A clock pulse, or any other signal
+              for that matter. A pulse is 'counted' when the input strength is
+              greater than 0V
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>(8, 9) In</b> &ndash; Signals to be passed through an open gate
+            </p>
+          </li>
+        </ul>
+        <h4>Knobs</h4>
+        <ul>
+          <li>
+            <p>
+              <b>(A, B) Closed Waits</b> &ndash; Set the count required from
+              each pulse before the gate opens
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>(F, G) Open Waits</b> &ndash; Set the count required from each
+              pulse before the gate closes. Setting either of these knobs to
+              zero means the gate will never close once opened
+            </p>
+          </li>
+        </ul>
+        <h4>Lights</h4>
+        <ul>
+          <li>
+            <p>
+              <b>(5, 7) Closed Count Met</b> &ndash; Indicates when a pulse has
+              met its <em>closed wait</em> requirement
+            </p>
+          </li>
+          <li>
+            <p><b>(6) Closed</b> &ndash; Indicates the gate is closed</p>
+          </li>
+          <li>
+            <p>
+              <b>(C, E) Closed Count Met</b> &ndash; Indicates when a pulse has
+              met its <em>open wait</em> requirement
+            </p>
+          </li>
+          <li>
+            <p><b>(D) Open</b> &ndash; Indicates the gate is open</p>
+          </li>
+        </ul>
+        <h4>Output</h4>
+        <ul>
+          <li>
+            <p>
+              <b>(H, I) Out</b> &ndash; Outputs <em>In</em> signal when gate is
+              open
+            </p>
+          </li>
+        </ul>
       </div>
     </div>
     <!-- FlipFlop -->
@@ -536,7 +997,7 @@
           <li>
             <p>
               <b>(4-7) Triggers</b> &ndash; Signals to change state of flipflop
-              when they have a strength of 10V
+              when they have a strength greater than 0V
             </p>
           </li>
         </ul>
@@ -544,7 +1005,7 @@
         <ul>
           <li>
             <p>
-              <b>(2) Flip</b> &ndash; Indicates when the <em>Flip</em> state is
+              <b>(1) Flip</b> &ndash; Indicates when the <em>Flip</em> state is
               active
             </p>
           </li>
@@ -559,7 +1020,7 @@
         <ul>
           <li>
             <p>
-              <b>(1) Flip Out</b> &ndash; Outputs <em>In</em> signal when
+              <b>(2) Flip Out</b> &ndash; Outputs <em>In</em> signal when
               <em>Flip</em> state is active
             </p>
           </li>
@@ -583,6 +1044,62 @@
       </div>
       <div id="FlippityFloppity" class="manualItemText">
         <h3>FlippityFloppity</h3>
+        <p>
+          This module is a derrivation of
+          <b><a class="manualLink" href="#FlipFlop">FlipFlop</a></b> where
+          triggers are assigned a specific state (<em>Flip</em> or
+          <em>Flop</em>).
+        </p>
+        <h4>Inputs</h4>
+        <ul>
+          <li>
+            <p>
+              <b>(3, 4) Flip Triggers</b> &ndash; Signals to change state to
+              <em>Flip</em>
+              when they have a strength greater than 0V
+            </p>
+          </li>
+          <li>
+            <p><b>(5) In</b> &ndash; Signal to be flipped or flopped</p>
+          </li>
+          <li>
+            <p>
+              <b>(6, 7) Triggers</b> &ndash; Signals to change state to
+              <em>Flop</em>
+              when they have a strength greater than 0V
+            </p>
+          </li>
+        </ul>
+        <h4>Lights</h4>
+        <ul>
+          <li>
+            <p>
+              <b>(1) Flip</b> &ndash; Indicates when the <em>Flip</em> state is
+              active
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>(9) Flop</b> &ndash; Indicates when the <em>Flop</em> state is
+              active
+            </p>
+          </li>
+        </ul>
+        <h4>Outputs</h4>
+        <ul>
+          <li>
+            <p>
+              <b>(2) Flip Out</b> &ndash; Outputs <em>In</em> signal when
+              <em>Flip</em> state is active
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>(8) Flop Out</b> &ndash; Outputs <em>In</em> signal when
+              <em>Flop</em> state is active
+            </p>
+          </li>
+        </ul>
       </div>
     </div>
     <!-- FlopFlip -->
@@ -596,6 +1113,56 @@
       </div>
       <div id="FlopFlip" class="manualItemText">
         <h3>FlopFlip</h3>
+        <p>
+          This module is a derrivation of
+          <b><a class="manualLink" href="#FlipFlop">FlipFlop</a></b> where two
+          inputs are flopped into one output.
+        </p>
+        <h4>Inputs</h4>
+        <ul>
+          <li>
+            <p>
+              <b>(1-4) Triggers</b> &ndash; Signals to change state of flip-flop
+              when they have a strength greater than 0V
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>(5) Flop In</b> &ndash; Signal to be output when
+              <em>Flop</em> state is active
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>(9) Flip In</b> &ndash; Signal to be output when
+              <em>Flip</em> state is active
+            </p>
+          </li>
+        </ul>
+        <h4>Lights</h4>
+        <ul>
+          <li>
+            <p>
+              <b>(6) Flop</b> &ndash; Indicates when the <em>Flop</em> state is
+              active
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>(8) Flip</b> &ndash; Indicates when the <em>Flip</em> state is
+              active
+            </p>
+          </li>
+        </ul>
+        <h4>Outputs</h4>
+        <ul>
+          <li>
+            <p>
+              <b>(2) Out</b> &ndash; Outputs one of the two <em>In</em> signals
+              depending on the state of the flip-flop
+            </p>
+          </li>
+        </ul>
       </div>
     </div>
     <!-- FloppityFlippity -->
@@ -609,6 +1176,65 @@
       </div>
       <div id="FloppityFlippity" class="manualItemText">
         <h3>FloppityFlippity</h3>
+        <p>
+          This module is a derrivation of
+          <b><a class="manualLink" href="#FlopFlip">FlopFlip</a></b> where
+          triggers are assigned a specific state (<em>Flop</em> or
+          <em>Flip</em>).
+        </p>
+        <h4>Inputs</h4>
+        <ul>
+          <li>
+            <p>
+              <b>(1) Flop In</b> &ndash; Signal to be output when
+              <em>Flop</em> state is active
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>(2, 3) Flop Triggers</b> &ndash; Signals to change state to
+              <em>Flop</em>
+              when they have a strength greater than 0V
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>(7, 8) Flip Triggers</b> &ndash; Signals to change state to
+              <em>Flip</em>
+              when they have a strength greater than 0V
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>(9) Flip In</b> &ndash; Signal to be output when
+              <em>Flip</em> state is active
+            </p>
+          </li>
+        </ul>
+        <h4>Lights</h4>
+        <ul>
+          <li>
+            <p>
+              <b>(4) Flop</b> &ndash; Indicates when the <em>Flop</em> state is
+              active
+            </p>
+          </li>
+          <li>
+            <p>
+              <b>(6) Flip</b> &ndash; Indicates when the <em>Flip</em> state is
+              active
+            </p>
+          </li>
+        </ul>
+        <h4>Outputs</h4>
+        <ul>
+          <li>
+            <p>
+              <b>(5) Out</b> &ndash; Outputs one of the two <em>In</em> signals
+              depending on the state of the flip-flop
+            </p>
+          </li>
+        </ul>
       </div>
     </div>
     <br />
